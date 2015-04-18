@@ -1,7 +1,4 @@
----
-title: "Coursera Data Science Reproducible Research: Peer Assessment 1"
-output: html_document
----
+#Coursera Data Science Reproducible Research: Peer Assessment 1
 
 This is R Mark Down document for Peer Assessment 1 in Coursera course, Reproducible Research offered by John Hopkins Bloomberg School of Public Health.
 
@@ -171,7 +168,7 @@ plot(activity_avg_interval$interval,activity_avg_interval$average,
      )
 ```
 
-![plot of chunk time_series_acorss_interval](figure/time_series_acorss_interval-1.png) 
+![plot of chunk time_series_across_interval](figure/time_series_across_interval-1.png) 
 
 The 5-minutes interval that contains the maximum average number of steps are computed.
 

@@ -1,7 +1,4 @@
----
-title: "Coursera Data Science Reproducible Research: Peer Assessment 1"
-output: html_document
----
+#Coursera Data Science Reproducible Research: Peer Assessment 1
 
 This is R Mark Down document for Peer Assessment 1 in Coursera course, Reproducible Research offered by John Hopkins Bloomberg School of Public Health.
 
@@ -108,7 +105,7 @@ The summary shows the interval at 5-minute and the average steps taken at the pa
 
 A time-series plot of the 5-minute interval and the average number of steps taken, average across all days.
 
-```{r time_series_acorss_interval}
+```{r time_series_across_interval}
 # Plot line graph for average daily steps taken.
 plot(activity_avg_interval$interval,activity_avg_interval$average,
      type='l',
