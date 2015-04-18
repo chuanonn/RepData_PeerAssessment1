@@ -249,8 +249,8 @@ activity$date &lt;- as.Date(activity$date,format=&quot;%Y-%m-%d&quot;)
 
 # Create new variable with two levels to indicate weekday or weekend.
 activity$day &lt;- as.factor(ifelse(
-                        weekdays(activity$date) == &#39;Saturday&#39; | weekdays(activity$date) == &#39;Sunday&#39;,&#39;weekend&#39;,&#39;weekday&#39;
-                        ))
+                        weekdays(activity$date) == &#39;Saturday&#39; | weekdays(activity$date) == &#39;Sunday&#39;
+                        ,&#39;weekend&#39;,&#39;weekday&#39;))
 
 # Summary of transformed dataset.
 summary(activity)
@@ -388,7 +388,8 @@ This section will analyse the mising values contained in the dataset and replace
 
 <p><em>Note: Dataset created in the previous section, the average number of steps taken across all days by intervals are used to impute the NA.</em></p>
 
-<pre><code class="r"># Original dataset are split to two dataset where steps variable contain non-NA value and NA values respectively.
+<pre><code class="r"># Original dataset are split to two dataset where steps variable 
+# contain non-NA value and NA values respectively.
 activity_non_na &lt;- activity[!is.na(activity$steps),]
 activity_na &lt;- activity[is.na(activity$steps),]
 
@@ -424,7 +425,9 @@ summary(activity_imputed)
 <p>Total steps take per day is aggregated from the imputed dataset.</p>
 
 <pre><code class="r"># Number of steps are aggregated by date
-activity_imputed_sum_day &lt;- aggregate(activity_imputed$steps, by= list(activity_imputed$date), FUN= sum, na.rm= TRUE)
+activity_imputed_sum_day &lt;- aggregate(activity_imputed$steps, 
+                                      by= list(activity_imputed$date), 
+                                      FUN= sum, na.rm= TRUE)
 
 # Change the variables name to make it more convenient to use.
 names(activity_imputed_sum_day) &lt;-c(&#39;date&#39;,&#39;total&#39;)
@@ -479,7 +482,9 @@ This section will analyse the activity patterns of the steps taken between weekd
 <p>Calculate average steps taken across weekdays and weekends by 5-minutes interval.</p>
 
 <pre><code class="r"># Averge steps taken across weekday and weekends by interval are calculated.
-activity_imputed_avg_day_interval &lt;- aggregate(activity_imputed$steps,by= list(activity_imputed$day,activity_imputed$interval),FUN=mean)
+activity_imputed_avg_day_interval &lt;- aggregate(activity_imputed$steps,
+                                               by= list(activity_imputed$day,activity_imputed$interval),
+                                               FUN=mean)
 
 # Change the variables name to make it more convenient to use.
 names(activity_imputed_avg_day_interval) &lt;- c(&#39;day&#39;,&#39;interval&#39;,&#39;average&#39;)

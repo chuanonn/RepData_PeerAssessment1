@@ -48,8 +48,8 @@ activity$date <- as.Date(activity$date,format="%Y-%m-%d")
 
 # Create new variable with two levels to indicate weekday or weekend.
 activity$day <- as.factor(ifelse(
-                        weekdays(activity$date) == 'Saturday' | weekdays(activity$date) == 'Sunday','weekend','weekday'
-                        ))
+                        weekdays(activity$date) == 'Saturday' | weekdays(activity$date) == 'Sunday'
+                        ,'weekend','weekday'))
 
 # Summary of transformed dataset.
 summary(activity)
@@ -202,7 +202,8 @@ NA values are replaced using the average steps taken across all days at the part
 
 
 ```r
-# Original dataset are split to two dataset where steps variable contain non-NA value and NA values respectively.
+# Original dataset are split to two dataset where steps variable 
+# contain non-NA value and NA values respectively.
 activity_non_na <- activity[!is.na(activity$steps),]
 activity_na <- activity[is.na(activity$steps),]
 
@@ -240,7 +241,9 @@ Total steps take per day is aggregated from the imputed dataset.
 
 ```r
 # Number of steps are aggregated by date
-activity_imputed_sum_day <- aggregate(activity_imputed$steps, by= list(activity_imputed$date), FUN= sum, na.rm= TRUE)
+activity_imputed_sum_day <- aggregate(activity_imputed$steps, 
+                                      by= list(activity_imputed$date), 
+                                      FUN= sum, na.rm= TRUE)
 
 # Change the variables name to make it more convenient to use.
 names(activity_imputed_sum_day) <-c('date','total')
@@ -302,7 +305,9 @@ Calculate average steps taken across weekdays and weekends by 5-minutes interval
 
 ```r
 # Averge steps taken across weekday and weekends by interval are calculated.
-activity_imputed_avg_day_interval <- aggregate(activity_imputed$steps,by= list(activity_imputed$day,activity_imputed$interval),FUN=mean)
+activity_imputed_avg_day_interval <- aggregate(activity_imputed$steps,
+                                               by= list(activity_imputed$day,activity_imputed$interval),
+                                               FUN=mean)
 
 # Change the variables name to make it more convenient to use.
 names(activity_imputed_avg_day_interval) <- c('day','interval','average')
