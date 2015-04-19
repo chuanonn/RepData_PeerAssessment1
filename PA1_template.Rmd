@@ -1,9 +1,4 @@
----
-title: "Coursera Data Science Reproducible Research: Peer Assessment 1"
-author: "Chai Chuan Onn"
-date: "Sunday, April 19, 2015"
-output: html_document
----
+#Coursera Data Science Reproducible Research: Peer Assessment 1
 
 This is R Mark Down document for Peer Assessment 1 in Coursera course, Reproducible Research offered by John Hopkins Bloomberg School of Public Health.
 
