@@ -1,4 +1,9 @@
-#Coursera Data Science Reproducible Research: Peer Assessment 1
+---
+title: "Coursera Data Science Reproducible Research: Peer Assessment 1"
+author: "Chai Chuan Onn"
+date: "Sunday, April 19, 2015"
+output: html_document
+---
 
 This is R Mark Down document for Peer Assessment 1 in Coursera course, Reproducible Research offered by John Hopkins Bloomberg School of Public Health.
 
@@ -347,4 +352,4 @@ xyplot(average ~ interval | day,
 
 ![plot of chunk time_series_plot_weekdays_weekend](figure/time_series_plot_weekdays_weekend-1.png) 
 
-**This R Markdown File is created at 2015-04-18.  by Chai Chuan Onn**
+**This R Markdown File is created at 2015-04-19.  by Chai Chuan Onn**
